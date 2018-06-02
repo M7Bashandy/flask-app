@@ -15,7 +15,7 @@ def parent(nodeName):
 
 def child(nodeName):
     result = []
-    db = MySQLdb.connect("localhost", "root", "root", "nodes")
+    db = MySQLdb.connect("mysql://bf8c0576f40c02:4706d8c3@us-cdbr-iron-east-04.cleardb.net/heroku_042884d8f533c75?reconnect=true", "bf8c0576f40c02", "4706d8c3 ", "nodes")
     cursor = db.cursor()
 
     sql = "SELECT B.node_name AS nodes FROM info A, info B " \
@@ -40,7 +40,7 @@ def child(nodeName):
 def Table():
     result=[]
     node=[""]
-    db = MySQLdb.connect("localhost", "root", "root", "nodes")
+    db = MySQLdb.connect("mysql://bf8c0576f40c02:4706d8c3@us-cdbr-iron-east-04.cleardb.net/heroku_042884d8f533c75?reconnect=true", "bf8c0576f40c02", "4706d8c3 ", "nodes")
     cursor = db.cursor()
 
     sql = "SELECT P.node_name AS nodes , P.parent_id AS Parent " \
@@ -76,7 +76,7 @@ def Query(search):
     elif isinstance(search, long):
         print search
         sql = "SELECT * FROM info WHERE id= '%d'" % (int(search))
-    db = MySQLdb.connect("localhost", "root", "root", "nodes")
+    db = MySQLdb.connect("mysql://bf8c0576f40c02:4706d8c3@us-cdbr-iron-east-04.cleardb.net/heroku_042884d8f533c75?reconnect=true", "bf8c0576f40c02", "4706d8c3 ", "nodes")
     cursor = db.cursor()
 
     try:
@@ -97,7 +97,7 @@ def Query(search):
 def register(name ,parentid):
     import MySQLdb
 
-    db = MySQLdb.connect("localhost", "root", "root", "nodes")
+    db = MySQLdb.connect("mysql://bf8c0576f40c02:4706d8c3@us-cdbr-iron-east-04.cleardb.net/heroku_042884d8f533c75?reconnect=true", "bf8c0576f40c02", "4706d8c3 ", "nodes")
     cursor = db.cursor()
     if parentid=="":
         sql = "INSERT INTO info( node_name)VALUES ('%s')" % (name)
@@ -114,7 +114,8 @@ def register(name ,parentid):
 def update(name ,parentid):
     import MySQLdb
     data=(parentid,name)
-    db = MySQLdb.connect("localhost", "root", "root", "nodes")
+    db = MySQLdb.connect("mysql://bf8c0576f40c02:4706d8c3@us-cdbr-iron-east-04.cleardb.net/heroku_042884d8f533c75?reconnect=true", "bf8c0576f40c02", "4706d8c3 ", "nodes")
+
     cursor = db.cursor()
     sql=""" UPDATE info
                 SET parent_id = %s
