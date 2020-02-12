@@ -1,7 +1,7 @@
 APScheduler==3.5.1
 Amara==2.0.0
 Cheetah==2.4.4
-Django==1.11.6
+Django==1.11.28
 Flask==0.12.2
 Jinja2==2.9.6
 MarkupSafe==1.0
