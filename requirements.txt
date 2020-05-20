@@ -35,7 +35,7 @@ futures==3.2.0
 gunicorn==19.8.1
 html5lib==0.999
 httpie==0.8.0
-httplib2==0.8
+httplib2==0.18.0
 iniparse==0.4
 itsdangerous==0.24
 jdcal==1.3
